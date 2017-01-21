@@ -407,3 +407,17 @@ Green Bay
 Madison
 Milwaukee
 Waukesha
+
+
+Categories
+tourist places
+art_gallery
+book_store
+hospital
+cafe
+museum
+night_club
+liquor_store
+casino
+food
+park
