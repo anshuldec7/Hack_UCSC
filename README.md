@@ -2,7 +2,7 @@
 Trip Planner
 cities
 
-Arizona:
+Arizona
 
 Anthem
 Apache Junction
