@@ -3,6 +3,7 @@ class CrimeReportService(ServiceBase):
     def checkcrime(ctx, lat, lon, radius):
         json1 = requests.get(
             'https://maps.googleapis.com/maps/api/place/textsearch/json?query=' + city +'+'+ categories + '&rankby=prominence&language=en&key=AIzaSyDmjLulL2RJWCbb3ewYnwC9VfHNZRpRK-o')
+        #city and categories have to have the %20 in for spaces for that to work
         json1 = json1.json()
         json2 = json1["categories"]
         rowcategories=[]
