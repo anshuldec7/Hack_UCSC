@@ -1,0 +1,339 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>PlanMyTrip</title>
+
+    <!-- Google fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
+
+    <!-- font awesome -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="/static/style/bootstrap.min.css" />
+
+    <link rel="stylesheet" href="/static/style/set.css" />
+
+
+    <!-- favicon -->
+
+
+    <link rel="stylesheet" href="/static/style/style.css">
+
+        <!-- Added by Anshul -->
+        <!-- Plugin CSS -->
+
+    <!-- Theme CSS -->
+    <link href="/static/style/creative.min.css" rel="stylesheet">
+
+   <!-- jQuery -->
+    <script src="/static/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/static/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="/static/scrollreveal.min.js"></script>
+    <script src="/static/jquery.magnific-popup.min.js"></script>
+
+    <!-- Theme JavaScript -->
+    <script src="/static/creative.min.js"></script>
+
+    <!-- jquery for Adding Multiple Text Boxes Start-->
+    <script type="text/javascript" src="/static/jquery-3.1.1.js"></script>
+        <!-- jquery for Adding Multiple Text Boxes End-->
+<script type="text/javascript"> var pyzeAppKey="9TpZoJnSThm1UEwhPHOOxQ";!function(e,t){function n(e,t){function n(t){e[t]=function(){e._q.push([t].concat(Array.prototype.slice.call(arguments,0)))}}for(var s=0;s<t.length;s++)n(t[s])}var s=e.Pyze||{_q:[]},i=e.PyzeEvents||{_q:[]},p=e.PyzeCuratedEvents||{_q:[]},o=["initialize","getTimerReference","postWebAppVersion","postPageView"],c=["postCustomEvent","postCustomEventWithAttributes","postTimedEvent","postExplicitActivation"],r=["post"];n(s,o),n(i,c),n(p,r);var a=t.createElement("script"),y=t.getElementsByTagName("script")[0];a.type="text/javascript",a.async=!0,a.src="https://cdn.pyze.com/pyze.js",y.parentNode.insertBefore(a,y),e.Pyze=s,e.PyzeEvents=i,e.PyzeCuratedEvents=p}(window,document),Pyze.initialize(pyzeAppKey);</script>
+
+
+</head>
+
+<body>
+<div class="topbar animated fadeInLeftBig"></div>
+
+<!-- Header Starts -->
+
+ <nav id="mainNav" class="navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+          <div class="navbar-header">
+                    <!-- Logo Starts -->
+                    <h1 style="font-size:250%;">Plan My Trip</h1>
+                    <!-- #Logo Ends -->
+
+                </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active">
+                        <a href="{{ url_for("welcome") }}"><strong>Home</strong></a>
+                    </li>
+                    <li >
+                        <a href="{{ url_for("analyse") }}"><strong>Analysis</strong></a>
+                    </li>
+
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+
+<div  class="container spacer about">
+
+
+
+
+
+
+
+<div  id="ppage">
+<div class="row">
+
+    <div class="form-group">
+        <div class="col-xs-12 col-sm-6 col-md-3">
+    <h4>Route Definition:</h4>
+            </div>
+
+        <br>
+        <table id="example" class="table table-bordered table-striped" >
+            <tr>
+                <td id = "inputroute"></td>
+            </tr>
+        </table>
+    </div>
+
+
+    </div>
+
+<h4 align="center"><b >Best/Optimum Routes</b></h4>
+    <div class="form-group">
+        <table id="example" class="table table-bordered table-striped" >
+            <thead>
+            <tr>
+
+                <th>Service Type</th>
+                <th>Route</th>
+                <th>Each Route Price</th>
+                <th>Total Price</th>
+            </tr>
+            </thead>
+            <tr>
+                <td ><b>Combined/Optimal</b></td>
+                <td id="routeComb"></td>
+                <td id="priceComb"></td>
+                <td id="totalPriceComb"></td>
+            </tr>
+            <tr>
+                <td ><b>Lyft</b></td>
+                <td id="routeLyft"></td>
+                <td id="priceLyft"></td>
+                <td id="totalPriceLyft"></td>
+            </tr>
+            <tr>
+                <td ><b>Uber</b></td>
+                <td id="routeUber"></td>
+                <td id="priceUber"></td>
+                <td id="totalPriceUber"></td>
+            </tr>
+        </table>
+    </div>
+
+    <h4 align="center"><b >User Input Route</b></h4>
+    <div class="form-group">
+        <table id="example" class="table table-bordered table-striped" >
+            <thead>
+            <tr>
+
+                <th>Service Type</th>
+                <th>User Route</th>
+                <th>Each Route Price</th>
+                <th>Total Price</th>
+            </tr>
+            </thead>
+            <tr>
+                <td ><b>Lyft</b></td>
+                <td id="userrouteLyft"></td>
+                <td id="userpriceLyft"></td>
+                <td id="usertotalPriceLyft"></td>
+            </tr>
+            <tr>
+                <td ><b>Uber</b></td>
+                <td id="userrouteUber"></td>
+                <td id="userpriceUber"></td>
+                <td id="usertotalPriceUber"></td>
+            </tr>
+        </table>
+    </div>
+
+</div></div>
+</div>
+</div>
+  </div>
+<script>
+//Table Entry for User Route Price
+
+//Table Entry for User Route Price for LYFT
+
+var userpriceLyft = '{{ result.useRoutepriceLyft }}' ;
+var userpriceLyftx = userpriceLyft.replace(/[[]/g,"" ).replace(/[\]]/g,"" ).split(',');
+console.log("Value" +userpriceLyftx);
+var usertotalpricelyft = parseFloat(0);
+for(i=0;i<userpriceLyftx.length; i++) {
+
+    if (i == (userpriceLyftx.length - 1)) {
+        console.log(userpriceLyftx[(userpriceLyftx.length - 1)])
+    document.getElementById("userrouteLyft").innerHTML += i +" --> 0" ;
+        document.getElementById("userpriceLyft").innerHTML += i +" --> 0"  + " ==> $" + userpriceLyftx[i] ;
+    }
+    else {
+        document.getElementById("userrouteLyft").innerHTML += i + " --> ";
+        document.getElementById("userpriceLyft").innerHTML += i + " --> " + (i+1) + "==> $" + userpriceLyftx[i] + "<br />" ;
+    }
+    usertotalpricelyft += parseFloat(userpriceLyftx[i]);
+}
+document.getElementById("usertotalPriceLyft").innerHTML = "$"+ usertotalpricelyft.toFixed(2);
+
+
+
+
+//Table Entry for User Route Price for Uber
+
+var userpriceUber = '{{ result.userRouteUberPrice }}' ;
+var userpriceUberx = userpriceUber.replace(/[[]/g,"" ).replace(/[\]]/g,"" ).split(',');
+var usertotalpriceUber = parseFloat(0);
+for(i=0;i<userpriceUberx.length; i++) {
+    if (i == (userpriceUberx.length - 1)) {
+    document.getElementById("userrouteUber").innerHTML += i +" --> 0" ;
+        document.getElementById("userpriceUber").innerHTML += i +" --> 0"  + " ==> $" + userpriceUberx[i] ;
+    }
+    else {
+        document.getElementById("userrouteUber").innerHTML += i + " --> ";
+        document.getElementById("userpriceUber").innerHTML += i + " --> " + (i+1) + "==> $" + userpriceUberx[i] + "<br />" ;
+    }
+    usertotalpriceUber += parseFloat(userpriceUberx[i]);
+}
+document.getElementById("usertotalPriceUber").innerHTML = "$"+ usertotalpriceUber.toFixed(2);
+
+
+
+//Table Entry for Lyft
+var bestRouteUsingLyft = '{{ result.BestRouteUsingLyft }}' ;
+var bestRouteUsingLyftx = bestRouteUsingLyft.replace(/[[]/g,"" ).replace(/[\]]/g,"" ).split(',');
+
+var priceForLyft = '{{ result.PriceForLyft }}' ;
+var priceForLyftx = priceForLyft.replace(/[[]/g,"" ).replace(/[\]]/g,"" ).split(',');
+var totalpricelyft = parseFloat(0);
+for(i=0;i<bestRouteUsingLyftx.length; i++) {
+    if (bestRouteUsingLyftx[i] == bestRouteUsingLyftx[bestRouteUsingLyftx.length - 1]) {
+    document.getElementById("routeLyft").innerHTML += bestRouteUsingLyftx[i] +" --> " +bestRouteUsingLyftx[0] ;
+        document.getElementById("priceLyft").innerHTML += bestRouteUsingLyftx[i] +" --> " +bestRouteUsingLyftx[0]+ " ==> $" + priceForLyftx[i] ;
+    }
+    else {
+        document.getElementById("routeLyft").innerHTML += bestRouteUsingLyftx[i] + " --> ";
+        document.getElementById("priceLyft").innerHTML += bestRouteUsingLyftx[i] +" --> " +bestRouteUsingLyftx[i+1]+ " ==> $" + priceForLyftx[i] + "<br />" ;
+    }
+    totalpricelyft += parseFloat(priceForLyftx[i]);
+
+}
+document.getElementById("totalPriceLyft").innerHTML = "$"+ totalpricelyft.toFixed(2);
+
+
+
+//Table Entry for Uber
+var bestRouteUsingUber = '{{ result.BestRouteUsingUber }}' ;
+var bestRouteUsingUberx = bestRouteUsingUber.replace(/[[]/g,"" ).replace(/[\]]/g,"" ).split(',');
+
+var priceForUber = '{{ result.PriceForUber }}' ;
+var priceForUberx = priceForUber.replace(/[[]/g,"" ).replace(/[\]]/g,"" ).split(',');
+var totalpriceuber = parseFloat(0);
+for(i=0;i<bestRouteUsingUberx.length; i++) {
+    if (bestRouteUsingUberx[i] == bestRouteUsingUberx[bestRouteUsingUberx.length - 1]) {
+    document.getElementById("routeUber").innerHTML += bestRouteUsingUberx[i] +" --> " +bestRouteUsingUberx[0] ;
+        document.getElementById("priceUber").innerHTML += bestRouteUsingUberx[i] +" --> " +bestRouteUsingUberx[0]+ " ==> $" + priceForUberx[i] ;
+    }
+    else {
+        document.getElementById("routeUber").innerHTML += bestRouteUsingUberx[i] + " --> ";
+        document.getElementById("priceUber").innerHTML += bestRouteUsingUberx[i] +" --> " +bestRouteUsingUberx[i+1]+ " ==> $" + priceForUberx[i] + "<br />" ;
+    }
+    totalpriceuber += parseFloat(priceForUberx[i]);
+
+}
+document.getElementById("totalPriceUber").innerHTML = "$"+ totalpriceuber.toFixed(2);
+
+//Table Entry for Optimal
+var bestRouteUsingBoth = '{{ result.BestRouteUsingBoth }}' ;
+var bestRouteUsingBothx = bestRouteUsingBoth.replace(/[[]/g,"" ).replace(/[\]]/g,"" ).split(',');
+
+
+var involvedProviders = '{{ result.InvolvedProviders }}' ;
+var involvedProvidersx = involvedProviders.replace(/[[]/g,"" ).replace(/[\]]/g,"" ).split(',');
+
+var bestPrice = '{{ result.BestPrice }}' ;
+var bestPricex = bestPrice.replace(/[[]/g,"" ).replace(/[\]]/g,"" ).split(',');
+var totalpricecomb = parseFloat(0);
+for(i=0;i<bestRouteUsingBothx.length; i++) {
+    if (bestRouteUsingBothx[i] == bestRouteUsingBothx[bestRouteUsingBothx.length - 1]) {
+    document.getElementById("routeComb").innerHTML += bestRouteUsingBothx[i] +" --> " +bestRouteUsingBothx[0] ;
+        document.getElementById("priceComb").innerHTML += bestRouteUsingBothx[i] +" --> " +bestRouteUsingBothx[0]+ " ==> $" + bestPricex[i] + " (" + involvedProvidersx[i] + ")" ;
+    }
+    else {
+        document.getElementById("routeComb").innerHTML += bestRouteUsingBothx[i] + " --> ";
+        document.getElementById("priceComb").innerHTML += bestRouteUsingBothx[i] +" --> " +bestRouteUsingBothx[i+1]+ " ==> $" + bestPricex[i] + " (" + involvedProvidersx[i] + ")"+  "<br />" ;
+    }
+    totalpricecomb += parseFloat(bestPricex[i]);
+
+}
+document.getElementById("totalPriceComb").innerHTML = "$"+ totalpricecomb.toFixed(2) +"   (Recommended)";
+
+
+//Code to show User Input Route
+var source_dest_list = '{{ result.userInput }}' ;
+
+var userInput = source_dest_list.split(',')
+
+    for(i=0;i<userInput.length; i++) {
+        var routeNumber = parseInt(userInput[i].split(':')[0]) - 1;
+    if (userInput[i] == userInput[userInput.length - 1]) {
+    document.getElementById("inputroute").innerHTML += routeNumber + " -- " + userInput[i].split(':')[1] ;
+  }
+    else {
+        document.getElementById("inputroute").innerHTML += routeNumber + " -- " + userInput[i].split(':')[1] + "<br />";
+  }
+
+}
+
+</script>
+
+
+
+<script>
+function myFunction() {
+       var prtContent = document.getElementById("ppage");
+                        var WinPrint = window.open('', '', 'left=0,top=0,width=800,height=900,toolbar=0,scrollbars=0,status=0');
+                        WinPrint.document.write(prtContent.innerHTML);
+                        WinPrint.document.close();
+                        WinPrint.focus();
+                        WinPrint.print();
+                        WinPrint.close();
+}
+</script>
+
+
+  <div class="col-xs-12 col-sm-6 col-md-2 " style="left: 650px">
+
+      <button type="button"   class="btn btn-primary btn-md" tabindex="2" onclick="myFunction()"> <i class="fa fa-print"></i> Print</button>
+                                </div>
+
+
+
+</body>
+</html>

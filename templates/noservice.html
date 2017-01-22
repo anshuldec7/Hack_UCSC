@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<style type="text/css">
+
+
+body {
+	background: url('/static/images/bg.gif') left top repeat-x rgb(249,249,249);
+
+}
+h1 { color: #7c795d; font-family: 'Trocchi', serif; font-size: 45px; font-weight: normal; line-height: 48px; margin: 0; }
+
+
+h2 { color: #7c795d; font-family: 'Source Sans Pro', sans-serif; font-size: 28px; font-weight: 400; line-height: 32px; margin: 0 0 24px; }
+</style>
+
+ <meta charset="UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>PlanMyTrip</title>
+
+
+	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
+
+    <!-- font awesome -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- bootstrap -->
+    <!-- Bootstrap core CSS     -->
+     <link rel="stylesheet" href="/static/style/bootstrap.min.css" />
+
+
+     <link rel="stylesheet" href="/static/style/style.css">
+     <link rel="stylesheet" href="/static/style/set.css" />
+    <!-- Animation library for notifications   -->
+    <link href="/static/style/animate.min.css" rel="stylesheet"/>
+
+    <!--  Light Bootstrap Table core CSS    -->
+    <link href="/static/style/light-bootstrap-dashboard.css" rel="stylesheet"/>
+
+    <!--     Fonts and icons     -->
+
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
+    <link href="/static/style/pe-icon-7-stroke.css" rel="stylesheet" />
+
+
+        <!-- Added by Anshul -->
+        <!-- Plugin CSS -->
+    <link href="/static/style/magnific-popup.css" rel="stylesheet">
+
+    <!-- Theme CSS -->
+    <link href="/static/style/creative.min.css" rel="stylesheet">
+
+
+</head>
+
+<body >
+
+<div class="topbar animated fadeInLeftBig"></div>
+
+<!-- Header Starts -->
+
+ <nav id="mainNav" class="navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+          <div class="navbar-header">
+                    <!-- Logo Starts -->
+                    <h1 style="font-size:250%;">Plan My Trip</h1>
+                    <!-- #Logo Ends -->
+
+                </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li >
+                        <a href="{{ url_for("welcome") }}"><strong>Home</strong></a>
+                    </li>
+                    <li >
+                        <a href="{{ url_for("analyse") }}"><strong>Analysis</strong></a>
+                    </li>
+
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+		<!-- header -->
+		<div id="routeFinder"  class="container spacer about">
+        <div class="row">
+         <div class="col-lg-6 col-lg-offset-3 text-center">
+        <div class="form-group">
+			<h1 style="color: #7c795d" aling="center">Sorry</h1>
+            <h2 aling="center" style="color: #ffffff">No Cab Service in the Entered Address/Area</h2>
+            </div>
+             <div class="col-xs-12 col-sm-6 col-md-6 col-sm-offset-2 col-md-offset-3"><div class="form-group">
+                <a href="{{ url_for("price") }}" class="btn btn-primary btn-block" role="button">Go Back</a>
+            </div>
+                                </div>
+		</div>
+		<!-- content -->
+		</div>
+
+		</div>
+		<!-- footer -->
+		\
+	</div>
+
+</body>
+</html>

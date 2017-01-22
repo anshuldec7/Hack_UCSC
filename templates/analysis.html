@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+	<meta charset="utf-8" />
+	<link rel="icon" type="image/png" href="assets/img/favicon.ico">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<title>PlanMyTrip</title>
+
+	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
+
+    <!-- font awesome -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- bootstrap -->
+    <!-- Bootstrap core CSS     -->
+     <link rel="stylesheet" href="/static/style/bootstrap.min.css" />
+
+
+     <link rel="stylesheet" href="/static/style/style.css">
+     <link rel="stylesheet" href="/static/style/set.css" />
+    <!-- Animation library for notifications   -->
+    <link href="/static/style/animate.min.css" rel="stylesheet"/>
+
+    <!--  Light Bootstrap Table core CSS    -->
+    <link href="/static/style/light-bootstrap-dashboard.css" rel="stylesheet"/>
+
+    <!--     Fonts and icons     -->
+
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
+    <link href="/static/style/pe-icon-7-stroke.css" rel="stylesheet" />
+
+
+        <!-- Added by Anshul -->
+        <!-- Plugin CSS -->
+    <link href="/static/style/magnific-popup.css" rel="stylesheet">
+
+    <!-- Theme CSS -->
+    <link href="/static/style/creative.min.css" rel="stylesheet">
+
+
+<style>
+
+
+</style>
+<script type="text/javascript"> var pyzeAppKey="9TpZoJnSThm1UEwhPHOOxQ";!function(e,t){function n(e,t){function n(t){e[t]=function(){e._q.push([t].concat(Array.prototype.slice.call(arguments,0)))}}for(var s=0;s<t.length;s++)n(t[s])}var s=e.Pyze||{_q:[]},i=e.PyzeEvents||{_q:[]},p=e.PyzeCuratedEvents||{_q:[]},o=["initialize","getTimerReference","postWebAppVersion","postPageView"],c=["postCustomEvent","postCustomEventWithAttributes","postTimedEvent","postExplicitActivation"],r=["post"];n(s,o),n(i,c),n(p,r);var a=t.createElement("script"),y=t.getElementsByTagName("script")[0];a.type="text/javascript",a.async=!0,a.src="https://cdn.pyze.com/pyze.js",y.parentNode.insertBefore(a,y),e.Pyze=s,e.PyzeEvents=i,e.PyzeCuratedEvents=p}(window,document),Pyze.initialize(pyzeAppKey);</script>
+
+</head>
+<body>
+
+
+<div class="topbar animated fadeInLeftBig"></div>
+
+<!-- Header Starts -->
+
+
+ <nav id="mainNav" class="navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+          <div class="navbar-header">
+                    <!-- Logo Starts -->
+                    <h1 style="font-size:250%;">Plan My Trip</h1>
+                    <!-- #Logo Ends -->
+
+                </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li >
+                        <a href="{{ url_for("welcome") }}"><strong>Home</strong></a>
+                    </li>
+                    <li class="active">
+                        <a href="{{ url_for("analyse") }}"><strong>Analysis</strong></a>
+                    </li>
+
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+<div class="wrapper">
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+    <br>
+<br>
+<br>
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="header">
+                                <h4 class="title">Comparison (Which is Cheap)</h4>
+                                <p id="pie_sample" class="category"></p>
+                            </div>
+                            <div class="content">
+                                <div id="chartPreferences" class="ct-chart ct-perfect-fourth"></div>
+
+                                <div class="footer">
+                                    <div class="legend">
+                                        <i class="fa fa-circle text-info"></i> <img src="/static/images/uber.png" width="25" height="25" alt="">
+                                        <i class="fa fa-circle text-danger"></i> <img src="/static/images/lyft.ico" width="25" height="25" alt="">
+                                    </div>
+                                   &nbsp; &nbsp;
+                                    <div class="stats">
+                                        <i class="fa fa-clock-o"></i> Calculated just now
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                      <div class="col-md-8">
+                        <div class="card ">
+                            <div class="header">
+                                <h4 class="title">Head to Head (Last 10 Trips Results)</h4>
+                                <div class="stats">
+                                        <i class="fa fa-check"></i> This is based on Real time API results provided by Uber/Lyft
+                                    </div>
+
+
+                            </div>
+                            <div class="content">
+                                <div id="chartActivity" class="ct-chart"></div>
+
+                                <div class="footer">
+                                    <div class="legend">
+                                        <i class="fa fa-circle text-info"></i> <img src="/static/images/uber.png" width="25" height="25" alt="">
+                                        <i class="fa fa-circle text-danger"></i> <img src="/static/images/lyft.ico" width="25" height="25" alt="">
+                                    </div>
+                                    &nbsp; &nbsp;
+                                    <div class="stats">
+                                    <b>X-axis : </b>Difference in price between Uber & Lyft &nbsp; &nbsp;<b>Y-axis</b> represents the Price in US$
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+        </div>
+
+
+
+    </div>
+</div>
+
+
+</body>
+
+    <!--   Core JS Files   -->
+    <script src="/static/jquery-3.1.1.js" type="text/javascript"></script>
+	<script src="/static/bootstrap.min.js" type="text/javascript"></script>
+
+	<!--  Checkbox, Radio & Switch Plugins -->
+	<script src="/static/bootstrap-checkbox-radio-switch.js"></script>
+
+	<!--  Charts Plugin -->
+	<script src="/static/chartist.min.js"></script>
+
+    <!--  Notifications Plugin    -->
+    <script src="/static/bootstrap-notify.js"></script>
+
+    <!--  Google Maps Plugin    -->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+
+    <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
+	<script src="/static/light-bootstrap-dashboard.js"></script>
+
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		demo = {
+    initPickColor: function(){
+        $('.pick-class-label').click(function(){
+            var new_class = $(this).attr('new-class');
+            var old_class = $('#display-buttons').attr('data-class');
+            var display_div = $('#display-buttons');
+            if(display_div.length) {
+            var display_buttons = display_div.find('.btn');
+            display_buttons.removeClass(old_class);
+            display_buttons.addClass(new_class);
+            display_div.attr('data-class', new_class);
+            }
+        });
+    },
+
+    initChartist: function(){
+
+        var dataSales = {
+          labels: ['9:00AM', '12:00AM', '3:00PM', '6:00PM', '9:00PM', '12:00PM', '3:00AM', '6:00AM'],
+          series: [
+             [287, 385, 490, 492, 554, 586, 698, 695, 752, 788, 846, 944],
+            [67, 152, 143, 240, 287, 335, 435, 437, 539, 542, 544, 647],
+            [23, 113, 67, 108, 190, 239, 307, 308, 439, 410, 410, 509]
+          ]
+        };
+
+        var optionsSales = {
+          lineSmooth: false,
+          low: 0,
+          high: 800,
+          showArea: true,
+          height: "245px",
+          axisX: {
+            showGrid: false,
+          },
+          lineSmooth: Chartist.Interpolation.simple({
+            divisor: 3
+          }),
+          showLine: false,
+          showPoint: false,
+        };
+
+        var responsiveSales = [
+          ['screen and (max-width: 640px)', {
+            axisX: {
+              labelInterpolationFnc: function (value) {
+                return value[0];
+              }
+            }
+          }]
+        ];
+
+        Chartist.Line('#chartHours', dataSales, optionsSales, responsiveSales);
+
+        var lyftPricelist = '{{ result.lyftPricelist }}' ;
+        var lyftPricelistx = lyftPricelist.replace(/[[]/g,"" ).replace(/[\]]/g,"" ).split(',');
+        var uberPriceList = '{{ result.uberPriceList }}' ;
+        var uberPriceListx = uberPriceList.replace(/[[]/g,"" ).replace(/[\]]/g,"" ).split(',');
+        if(lyftPricelistx.length >= 10) {
+            price1 = Math.abs(parseFloat(uberPriceListx[0] - lyftPricelistx[0]).toFixed(2));
+            price2 = Math.abs(parseFloat(uberPriceListx[1] - lyftPricelistx[1]).toFixed(2));
+            price3 = Math.abs(parseFloat(uberPriceListx[2] - lyftPricelistx[2]).toFixed(2));
+            price4 = Math.abs(parseFloat(uberPriceListx[3] - lyftPricelistx[3]).toFixed(2));
+            price5 = Math.abs(parseFloat(uberPriceListx[4] - lyftPricelistx[4]).toFixed(2));
+            price6 = Math.abs(parseFloat(uberPriceListx[5] - lyftPricelistx[5]).toFixed(2));
+            price7 = Math.abs(parseFloat(uberPriceListx[6] - lyftPricelistx[6]).toFixed(2));
+            price8 = Math.abs(parseFloat(uberPriceListx[7] - lyftPricelistx[7]).toFixed(2));
+            price9 = Math.abs(parseFloat(uberPriceListx[8] - lyftPricelistx[8]).toFixed(2));
+            price10 = Math.abs(parseFloat(uberPriceListx[9] - lyftPricelistx[9]).toFixed(2));
+
+
+            var data = {
+                labels: [price1, price2, price3, price4, price5, price6, price7, price8, price9, price10],
+                series: [
+                    [parseFloat(uberPriceListx[0]).toFixed(2), parseFloat(uberPriceListx[1]).toFixed(2), parseFloat(uberPriceListx[2]).toFixed(2), parseFloat(uberPriceListx[3]).toFixed(2), parseFloat(uberPriceListx[4]).toFixed(2), parseFloat(uberPriceListx[5]).toFixed(2), parseFloat(uberPriceListx[6]).toFixed(2), parseFloat(uberPriceListx[7]).toFixed(2), parseFloat(uberPriceListx[8]).toFixed(2), parseFloat(uberPriceListx[9]).toFixed(2)],
+                    [parseFloat(lyftPricelistx[0]).toFixed(2), parseFloat(lyftPricelistx[1]).toFixed(2), parseFloat(lyftPricelistx[2]).toFixed(2), parseFloat(lyftPricelistx[3]).toFixed(2), parseFloat(lyftPricelistx[4]).toFixed(2), parseFloat(lyftPricelistx[5]).toFixed(2), parseFloat(lyftPricelistx[6]).toFixed(2), parseFloat(lyftPricelistx[7]).toFixed(2), parseFloat(lyftPricelistx[8]).toFixed(2), parseFloat(lyftPricelistx[9]).toFixed(2)]
+                ]
+            };
+
+            var options = {
+                seriesBarDistance: 10,
+                axisX: {
+                    showGrid: false
+                },
+                height: "245px"
+            };
+
+            var responsiveOptions = [
+                ['screen and (max-width: 640px)', {
+                    seriesBarDistance: 5,
+                    axisX: {
+                        labelInterpolationFnc: function (value) {
+                            return value[0];
+                        }
+                    }
+                }]
+            ];
+
+            Chartist.Bar('#chartActivity', data, options, responsiveOptions);
+        }
+
+
+        var optionsPreferences = {
+            donut: true,
+            donutWidth: 40,
+            startAngle: 0,
+            total: 100,
+            showLabel: false,
+            axisX: {
+                showGrid: false
+            }
+        };
+
+        Chartist.Pie('#chartPreferences',  optionsPreferences);
+        var ubercount = '{{ result.ubercount }}' ;
+        var lyftcount = '{{ result.lyftcount }}' ;
+        var totalcount = parseInt(lyftcount) + parseInt(ubercount);
+        var uberpercent = parseFloat((ubercount/totalcount)*100).toFixed(2);
+        var lyftpercent = parseFloat((lyftcount/totalcount)*100).toFixed(2);
+
+        document.getElementById("pie_sample").innerHTML = "Sample Size Considered : <strong>"+ totalcount + "</strong> Trips";
+
+        Chartist.Pie('#chartPreferences', {
+          labels: [uberpercent + "%" ,lyftpercent + "%"],
+          series: [uberpercent, lyftpercent]
+        });
+    },
+
+    initGoogleMaps: function(){
+        var myLatlng = new google.maps.LatLng(40.748817, -73.985428);
+        var mapOptions = {
+          zoom: 13,
+          center: myLatlng,
+          scrollwheel: false, //we disable de scroll over the map, it is a really annoing when you scroll through page
+          styles: [{"featureType":"water","stylers":[{"saturation":43},{"lightness":-11},{"hue":"#0088ff"}]},{"featureType":"road","elementType":"geometry.fill","stylers":[{"hue":"#ff0000"},{"saturation":-100},{"lightness":99}]},{"featureType":"road","elementType":"geometry.stroke","stylers":[{"color":"#808080"},{"lightness":54}]},{"featureType":"landscape.man_made","elementType":"geometry.fill","stylers":[{"color":"#ece2d9"}]},{"featureType":"poi.park","elementType":"geometry.fill","stylers":[{"color":"#ccdca1"}]},{"featureType":"road","elementType":"labels.text.fill","stylers":[{"color":"#767676"}]},{"featureType":"road","elementType":"labels.text.stroke","stylers":[{"color":"#ffffff"}]},{"featureType":"poi","stylers":[{"visibility":"off"}]},{"featureType":"landscape.natural","elementType":"geometry.fill","stylers":[{"visibility":"on"},{"color":"#b8cb93"}]},{"featureType":"poi.park","stylers":[{"visibility":"on"}]},{"featureType":"poi.sports_complex","stylers":[{"visibility":"on"}]},{"featureType":"poi.medical","stylers":[{"visibility":"on"}]},{"featureType":"poi.business","stylers":[{"visibility":"simplified"}]}]
+
+        }
+        var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+        var marker = new google.maps.Marker({
+            position: myLatlng,
+            title:"Hello World!"
+        });
+
+        // To add the marker to the map, call setMap();
+        marker.setMap(map);
+    },
+
+	showNotification: function(from, align){
+    	color = Math.floor((Math.random() * 4) + 1);
+
+    	$.notify({
+        	icon: "pe-7s-gift",
+        	message: "Welcome to <b>Light Bootstrap Dashboard</b> - a beautiful freebie for every web developer."
+
+        },{
+            type: type[color],
+            timer: 4000,
+            placement: {
+                from: from,
+                align: align
+            }
+        });
+	}
+
+
+}
+
+type = ['','info','success','warning','danger'];
+
+    	$(document).ready(function(){
+
+        	demo.initChartist();
+
+        	$.notify({
+            	icon: '',
+            	message: "<p><font color='black'>Welcome to <b>Light Bootstrap Dashboard</b> - a beautiful freebie for every web developer.</font></p>"
+
+            },{
+                type: 'success',
+                timer: 4000
+            });
+
+    	});
+
+
+
+
+
+	</script>
+
+</html>

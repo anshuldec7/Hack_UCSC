@@ -1,0 +1,386 @@
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<head>
+<style>
+
+
+
+        body {
+	left:0;
+	right:0;
+	top:0;
+	bottom:0;
+  -o-background-size: cover;
+  background-position: center;
+  background-image: url('/static/images/Background2.jpg');
+
+}
+</style>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>PlanMyTrip</title>
+
+    <!-- Google fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
+
+    <!-- font awesome -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="/static/style/bootstrap.min.css" />
+    <link rel="stylesheet" href="/static/style/set.css" />
+    <!-- favicon -->
+    <link rel="stylesheet" href="/static/style/style.css">
+    <!-- Added by Anshul -->
+        <!-- Plugin CSS -->
+    <link href="/static/style/magnific-popup.css" rel="stylesheet">
+        <!--  Light Bootstrap Table core CSS    -->
+    <link href="/static/style/light-bootstrap-dashboard.css" rel="stylesheet"/>
+    <!-- Theme CSS -->
+    <link href="/static/style/creative.min.css" rel="stylesheet">
+
+
+<style>
+       #map {
+        height: 400px;
+        width: 100%;
+       }
+    </style>
+
+        <!-- jQuery -->
+    <script src="/static/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/static/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="/static/scrollreveal.min.js"></script>
+    <script src="/static/jquery.magnific-popup.min.js"></script>
+
+    <!-- Theme JavaScript -->
+    <script src="/static/creative.min.js"></script>
+
+    <!-- jquery for Adding Multiple Text Boxes Start-->
+    <script type="text/javascript" src="/static/jquery-3.1.1.js"></script>
+        <!-- jquery for Adding Multiple Text Boxes End-->
+        
+        <!-- JavaScript for Adding Multiple Text Box Start-->
+        <script type="text/javascript">
+
+</script>
+<!-- JavaScript for Adding Multiple Text Box End-->
+</head>
+
+<body id="page-top" >
+
+<img src="/static/images/loading.gif" id="gif" style="display: block; margin: 0 auto; width: 100px; visibility: hidden;">
+<div class="topbar animated fadeInLeftBig"></div>
+
+<!-- Header Starts -->
+
+ <nav id="mainNav" class="navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+          <div class="navbar-header">
+                    <!-- Logo Starts -->
+                    <h1 style="font-size:250%;"  >Plan My Trip</h1>
+                    <!-- #Logo Ends -->
+
+                </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active">
+                        <a href="{{ url_for("welcome") }}"><strong>Home</strong></a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for("analyse") }}"><strong>Analysis</strong></a>
+                    </li>
+
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+
+
+<!-- #Header Starts -->
+
+
+
+                    <div  class="container spacer about">
+
+         <form name="myform" id="myform" method="POST" >
+<h4 align="center"><b>Select places you want to visit</b></h4>
+    <div class="form-group">
+
+        <table id="example" class="table table-bordered" bgcolor="#00FF00">
+            <thead>
+            <tr class="success">
+                <th><strong></strong></th>
+                <th><strong>Place</strong></th>
+                <th><strong>Address</strong></th>
+                <th><strong>Rating</strong></th>
+                <th><strong>Open Now</strong></th>
+            </tr>
+            </thead>
+            <tr class="info" id="row1" style = "display: none">
+                <td><input id="latlng1" type="checkbox" name="latlng1"></td>
+                <td id="place1" name="place1"></td>
+                <td id="address1" name="address1"></td>
+                <td id="rating1" ></td>
+                <td id="open_now1"></td>
+            </tr>
+            <tr class="info" id="row2" style = "display: none">
+                 <td><input id="latlng2" type="checkbox" name="latlng2"></td>
+                <td id="place2"></td>
+                <td id="address2"></td>
+                <td id="rating2"></td>
+                <td id="open_now2"></td>
+            </tr>
+            <tr class="info" id="row3" style = "display: none">
+                 <td><input id ="latlng3" type="checkbox" name="latlng3"></td>
+                <td id="place3"></td>
+                <td id="address3"></td>
+                <td id="rating3"></td>
+                <td id="open_now3"></td>
+            </tr>
+            <tr class="info" id="row4" style = "display: none">
+                 <td><input id="latlng4" type="checkbox" name="latlng4"></td>
+                <td id="place4"></td>
+                <td id="address4"></td>
+                <td id="rating4"></td>
+                 <td id="open_now4"></td>
+            </tr>
+            <tr class="info" id="row5" style = "display: none">
+                 <td><input id="latlng5" type="checkbox" name="latlng5"></td>
+                <td id="place5"></td>
+                <td id="address5"></td>
+                <td id="rating5"></td>
+                <td id="open_now5"></td>
+            </tr>
+        </table>
+
+    </div>
+
+             <input type="text"  id="WeatherReport" name="WeatherReport" class="form-control input-lg" readonly="true" >
+
+             <input type="hidden"  id="placename1" name="placename1" class="form-control input-lg" >
+             <input type="hidden"  id="placename2" name="placename2" class="form-control input-lg" >
+             <input type="hidden"  id="placename3" name="placename3" class="form-control input-lg" >
+             <input type="hidden"  id="placename4" name="placename4" class="form-control input-lg" >
+             <input type="hidden"  id="placename5" name="placename5" class="form-control input-lg" >
+                            <hr class="colorgraph">
+
+
+                              <div class="col-xs-12 col-sm-6 col-md-6 col-sm-offset-2 col-md-offset-3"><div class="form-group"><input type="submit" id="submit" name="submit" value="Get Me There" class="btn btn-primary btn-block"  ></div>
+                                </div>
+                                      
+
+</form>
+                    </div>
+
+
+
+
+
+
+
+<script type="text/javascript">
+    var lat1 = "";
+    var lng1 = "";
+    var lat2 = "";
+    var lng2 = "";
+    var lat3 = "";
+    var lng3 = "";
+    var lat4 = "";
+    var lng4 = "";
+    var lat5 = "";
+    var lng5 = "";
+var place1 = '{{ result[0][0] }}' ;
+if (place1 != "" ) {
+    document.getElementById("row1").style.display = "";
+    document.getElementById("place1").innerHTML = place1;
+    document.getElementById("placename1").value = place1;
+
+    var address1 = '{{ result[0][3] }}';
+    document.getElementById("address1").innerHTML = address1;
+    var rating1 = '{{ result[0][1] }}';
+    if (rating1 != "" )
+        document.getElementById("rating1").innerHTML = rating1;
+    else
+        document.getElementById("rating1").innerHTML = "NA";
+    var open_now1 = '{{ result[0][2] }}';
+    if (open_now1 == "True") {
+        var open_now_val1 = "Yes";
+        document.getElementById("open_now1").style.color = "green";
+    }
+    else {
+        var open_now_val1 = "No";
+        document.getElementById("open_now1").style.color = "red";
+    }
+    document.getElementById("open_now1").innerHTML = open_now_val1;
+    lat1 = '{{ result[0][4] }}' ;
+    lng1 = '{{ result[0][5] }}' ;
+    document.getElementById("latlng1").value = lat1 + "," + lng1;
+
+    var weatherDesc = '{{ result[0][6] }}';
+    var temp = '{{ result[0][7] }}';
+    temp=((temp - 273.15)* 1.8000)+32;
+    temp=Math.round(temp * 100) / 100
+    var humidity = '{{ result[0][8] }}';
+    document.getElementById("WeatherReport").value = "Today will be "+weatherDesc+ " Temperature will be " + temp+" Humidity is "+humidity;
+
+}
+
+var place2 = '{{ result[1][0] }}' ;
+if (place2 != "" ) {
+    document.getElementById("row2").style.display = "";
+    document.getElementById("place2").innerHTML = place2;
+    document.getElementById("placename2").value = place2;
+    var address2 = '{{ result[1][3] }}';
+    document.getElementById("address2").innerHTML = address2;
+    var rating2 = '{{ result[1][1] }}';
+    if (rating2 != "" )
+        document.getElementById("rating2").innerHTML = rating2;
+    else
+        document.getElementById("rating2").innerHTML = "NA";
+    var open_now2 = '{{ result[1][2] }}';
+    if (open_now2 == "True") {
+        var open_now_val2 = "Yes";
+        document.getElementById("open_now2").style.color = "green";
+    }
+    else {
+        var open_now_val2 = "No";
+        document.getElementById("open_now2").style.color = "red";
+    }
+    document.getElementById("open_now2").innerHTML = open_now_val2;
+    lat2 = '{{ result[1][4] }}' ;
+    lng2 = '{{ result[1][5] }}'
+    document.getElementById("latlng2").value = lat2 + "," + lng2;
+
+}
+
+var place3 = '{{ result[2][0] }}' ;
+if (place3 != "" ) {
+    document.getElementById("row3").style.display = "";
+    document.getElementById("place3").innerHTML = place3;
+    document.getElementById("placename3").value = place3;
+    var address3 = '{{ result[2][3] }}';
+    document.getElementById("address3").innerHTML = address3;
+    var rating3 = '{{ result[2][1] }}';
+    if (rating3 != "" )
+        document.getElementById("rating3").innerHTML = rating3;
+    else
+        document.getElementById("rating3").innerHTML = "NA";
+    var open_now3 = '{{ result[2][2] }}';
+    if (open_now3 == "True") {
+        var open_now_val3 = "Yes";
+        document.getElementById("open_now3").style.color = "green";
+    }
+    else {
+        var open_now_val3 = "No";
+        document.getElementById("open_now3").style.color = "red";
+    }
+    document.getElementById("open_now3").innerHTML = open_now_val3;
+    lat3 = '{{ result[2][4] }}' ;
+    lng3 = '{{ result[2][5] }}' ;
+    document.getElementById("latlng3").value = lat3 + "," + lng3;
+
+}
+
+var place4 = '{{ result[3][0] }}' ;
+if (place4 != "" ) {
+    document.getElementById("row4").style.display = "";
+    document.getElementById("place4").innerHTML = place4;
+    document.getElementById("placename4").value = place4;
+    var address4 = '{{ result[3][3] }}';
+    document.getElementById("address4").innerHTML = address4;
+    var rating4 = '{{ result[3][1] }}';
+    if (rating4 != "" )
+        document.getElementById("rating4").innerHTML = rating4;
+    else
+        document.getElementById("rating4").innerHTML = "NA";
+    var open_now4 = '{{ result[3][2] }}';
+    if (open_now4 == "True") {
+        var open_now_val4 = "Yes";
+        document.getElementById("open_now4").style.color = "green";
+    }
+    else {
+        var open_now_val4 = "No";
+        document.getElementById("open_now4").style.color = "red";
+    }
+    document.getElementById("open_now4").innerHTML = open_now_val4;
+    lat4 = '{{ result[3][4] }}' ;
+    lng4 = '{{ result[3][5] }}' ;
+    document.getElementById("latlng4").value = lat4 + "," + lng4;
+
+}
+
+var place5 = '{{ result[4][0] }}' ;
+if (place5 != "" ) {
+    document.getElementById("row5").style.display = "";
+    document.getElementById("place5").innerHTML = place5;
+    document.getElementById("placename5").value = place5;
+    var address5 = '{{ result[4][3] }}';
+    document.getElementById("address5").innerHTML = address5;
+    var rating5 = '{{ result[4][1] }}';
+    if (rating5 != "" )
+        document.getElementById("rating5").innerHTML = rating5;
+    else
+        document.getElementById("rating5").innerHTML = "NA";
+    var open_now5 = '{{ result[4][2] }}';
+    if (open_now5 == "True") {
+        var open_now_val5 = "Yes";
+        document.getElementById("open_now5").style.color = "green";
+    }
+    else {
+        var open_now_val5 = "No";
+        document.getElementById("open_now5").style.color = "red";
+    }
+    document.getElementById("open_now5").innerHTML = open_now_val5;
+    lat5 = '{{ result[4][4] }}' ;
+    lng5 = '{{ result[4][5] }}' ;
+    document.getElementById("latlng5").value = lat5 + "," + lng5;
+
+}
+console.log(document.getElementById("latlng5").value);
+
+</script>
+
+
+       <script type="text/javascript">
+
+$(document).ready(function(){
+
+                $("#submit").click(function () {
+
+	    document.myform.action = "/price"
+         document.myform.submit();             // Submit the page
+
+    return true;
+
+     });
+
+
+  });
+</script>
+
+
+
+                    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDmjLulL2RJWCbb3ewYnwC9VfHNZRpRK-o&libraries=places&callback=initMap">
+    </script>
+         </div>   
+
+
+</body>
+</html>
