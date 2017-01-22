@@ -51,7 +51,20 @@
     <script type="text/javascript" src="/static/jquery-3.1.1.js"></script>
         <!-- jquery for Adding Multiple Text Boxes End-->
 <script type="text/javascript"> var pyzeAppKey="9TpZoJnSThm1UEwhPHOOxQ";!function(e,t){function n(e,t){function n(t){e[t]=function(){e._q.push([t].concat(Array.prototype.slice.call(arguments,0)))}}for(var s=0;s<t.length;s++)n(t[s])}var s=e.Pyze||{_q:[]},i=e.PyzeEvents||{_q:[]},p=e.PyzeCuratedEvents||{_q:[]},o=["initialize","getTimerReference","postWebAppVersion","postPageView"],c=["postCustomEvent","postCustomEventWithAttributes","postTimedEvent","postExplicitActivation"],r=["post"];n(s,o),n(i,c),n(p,r);var a=t.createElement("script"),y=t.getElementsByTagName("script")[0];a.type="text/javascript",a.async=!0,a.src="https://cdn.pyze.com/pyze.js",y.parentNode.insertBefore(a,y),e.Pyze=s,e.PyzeEvents=i,e.PyzeCuratedEvents=p}(window,document),Pyze.initialize(pyzeAppKey);</script>
+<style>
 
+
+        body {
+	left:0;
+	right:0;
+	top:0;
+	bottom:0;
+  -o-background-size: cover;
+  background-position: center;
+  background-image: url('/static/images/back.jpg');
+
+}
+</style>
 
 </head>
 
@@ -104,7 +117,7 @@
             </div>
 
         <br>
-        <table id="example" class="table table-bordered table-striped" >
+        <table id="example" class="table table-bordered table-hover table-responsive" >
             <tr>
                 <td id = "inputroute"></td>
             </tr>
@@ -116,7 +129,7 @@
 
 <h4 align="center"><b >Best/Optimum Routes</b></h4>
     <div class="form-group">
-        <table id="example" class="table table-bordered table-striped" >
+        <table id="example" class="table table-bordered table-hover table-responsive" >
             <thead>
             <tr>
 
@@ -147,9 +160,9 @@
         </table>
     </div>
 
-    <h4 align="center"><b >User Input Route</b></h4>
+    <h4 align="center"><b >Conventional Route</b></h4>
     <div class="form-group">
-        <table id="example" class="table table-bordered table-striped" >
+        <table id="example" class="table table-bordered table-hover table-responsive" >
             <thead>
             <tr>
 

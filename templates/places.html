@@ -11,7 +11,7 @@
 	bottom:0;
   -o-background-size: cover;
   background-position: center;
-  background-image: url('/static/images/Background2.jpg');
+  background-image: url('/static/images/back.jpg');
 
 }
 </style>
@@ -120,45 +120,45 @@
 <h4 align="center"><b>Select places you want to visit</b></h4>
     <div class="form-group">
 
-        <table id="example" class="table table-bordered" bgcolor="#00FF00">
+        <table id="example" class="table table-bordered table-hover table-responsive" >
             <thead>
-            <tr class="success">
+            <tr >
                 <th><strong></strong></th>
-                <th><strong>Place</strong></th>
-                <th><strong>Address</strong></th>
-                <th><strong>Rating</strong></th>
-                <th><strong>Open Now</strong></th>
+                <th><h4><strong>Place</strong></h4></th>
+                <th><h4><strong>Address</strong></h4></th>
+                <th><h4><strong>Rating</strong></h4></th>
+                <th><h4><strong>Open Now</strong></h4></th>
             </tr>
             </thead>
-            <tr class="info" id="row1" style = "display: none">
+            <tr id="row1" style = "display: none">
                 <td><input id="latlng1" type="checkbox" name="latlng1" onchange="changeSubmitButton();"></td>
                 <td id="place1" name="place1"></td>
                 <td id="address1" name="address1"></td>
                 <td id="rating1" ></td>
                 <td id="open_now1"></td>
             </tr>
-            <tr class="info" id="row2" style = "display: none">
+            <tr  id="row2" style = "display: none">
                  <td><input id="latlng2" type="checkbox" name="latlng2" onchange="changeSubmitButton();"></td>
                 <td id="place2"></td>
                 <td id="address2"></td>
                 <td id="rating2"></td>
                 <td id="open_now2"></td>
             </tr>
-            <tr class="info" id="row3" style = "display: none">
+            <tr  id="row3" style = "display: none">
                  <td><input id ="latlng3" type="checkbox" name="latlng3" onchange="changeSubmitButton();"></td>
                 <td id="place3"></td>
                 <td id="address3"></td>
                 <td id="rating3"></td>
                 <td id="open_now3"></td>
             </tr>
-            <tr class="info" id="row4" style = "display: none">
+            <tr  id="row4" style = "display: none">
                  <td><input id="latlng4" type="checkbox" name="latlng4" onchange="changeSubmitButton();"></td>
                 <td id="place4"></td>
                 <td id="address4"></td>
                 <td id="rating4"></td>
                  <td id="open_now4"></td>
             </tr>
-            <tr class="info" id="row5" style = "display: none">
+            <tr id="row5" style = "display: none">
                  <td><input id="latlng5" type="checkbox" name="latlng5" onchange="changeSubmitButton();"></td>
                 <td id="place5"></td>
                 <td id="address5"></td>

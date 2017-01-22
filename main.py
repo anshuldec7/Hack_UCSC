@@ -251,7 +251,7 @@ def price():
         print e
         #return render_template('server_error.html', result=e)
     return render_template('display.html', result=optimalRoute)
-    #return render_template('server_error.html')
+    #return render_template('server_error.html')style="font-size: 12px;"
 
 
 
