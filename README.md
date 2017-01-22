@@ -1,3 +1,4 @@
+#Ryde Right
 ## Inspiration
 Uber and Lyft are very convenient when you need a ride in an unfamiliar area, but they can get very expensive, and we're just trying to take the burden off of your wallet.
 ## What it does
