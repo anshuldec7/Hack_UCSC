@@ -131,35 +131,35 @@
             </tr>
             </thead>
             <tr class="info" id="row1" style = "display: none">
-                <td><input id="latlng1" type="checkbox" name="latlng1"></td>
+                <td><input id="latlng1" type="checkbox" name="latlng1" onchange="changeSubmitButton();"></td>
                 <td id="place1" name="place1"></td>
                 <td id="address1" name="address1"></td>
                 <td id="rating1" ></td>
                 <td id="open_now1"></td>
             </tr>
             <tr class="info" id="row2" style = "display: none">
-                 <td><input id="latlng2" type="checkbox" name="latlng2"></td>
+                 <td><input id="latlng2" type="checkbox" name="latlng2" onchange="changeSubmitButton();"></td>
                 <td id="place2"></td>
                 <td id="address2"></td>
                 <td id="rating2"></td>
                 <td id="open_now2"></td>
             </tr>
             <tr class="info" id="row3" style = "display: none">
-                 <td><input id ="latlng3" type="checkbox" name="latlng3"></td>
+                 <td><input id ="latlng3" type="checkbox" name="latlng3" onchange="changeSubmitButton();"></td>
                 <td id="place3"></td>
                 <td id="address3"></td>
                 <td id="rating3"></td>
                 <td id="open_now3"></td>
             </tr>
             <tr class="info" id="row4" style = "display: none">
-                 <td><input id="latlng4" type="checkbox" name="latlng4"></td>
+                 <td><input id="latlng4" type="checkbox" name="latlng4" onchange="changeSubmitButton();"></td>
                 <td id="place4"></td>
                 <td id="address4"></td>
                 <td id="rating4"></td>
                  <td id="open_now4"></td>
             </tr>
             <tr class="info" id="row5" style = "display: none">
-                 <td><input id="latlng5" type="checkbox" name="latlng5"></td>
+                 <td><input id="latlng5" type="checkbox" name="latlng5" onchange="changeSubmitButton();"></td>
                 <td id="place5"></td>
                 <td id="address5"></td>
                 <td id="rating5"></td>
@@ -179,7 +179,7 @@
                             <hr class="colorgraph">
 
 
-                              <div class="col-xs-12 col-sm-6 col-md-6 col-sm-offset-2 col-md-offset-3"><div class="form-group"><input type="submit" id="submit" name="submit" value="Get Me There" class="btn btn-primary btn-block"  ></div>
+                              <div class="col-xs-12 col-sm-6 col-md-6 col-sm-offset-2 col-md-offset-3"><div class="form-group"><input type="submit" id="submit" name="submit" value="Get Me There" class="btn btn-primary btn-block"  disabled="true"></div>
                                 </div>
                                       
 
@@ -235,7 +235,7 @@ if (place1 != "" ) {
     temp=((temp - 273.15)* 1.8000)+32;
     temp=Math.round(temp * 100) / 100
     var humidity = '{{ result[0][8] }}';
-    document.getElementById("WeatherReport").value = "Today will be "+weatherDesc+ " Temperature will be " + temp+" Humidity is "+humidity;
+    document.getElementById("WeatherReport").value = "Today will be "+weatherDesc+ ". Temperature is " + temp+"F & Humidity is "+humidity;
 
 }
 
@@ -370,6 +370,31 @@ $(document).ready(function(){
 
 
   });
+           function changeSubmitButton(){
+               var i=0;
+
+                if(latlng1.checked == true){
+                    i++
+             }
+              if(latlng2.checked == true){
+                    i++
+             }
+              if(latlng3.checked == true){
+                    i++
+             }
+              if(latlng4.checked == true){
+                    i++
+             }
+              if(latlng5.checked == true) {
+                  i++
+              }
+               if(i<2) {
+                   document.getElementById("submit").disabled = true;
+               }else{
+                   document.getElementById("submit").disabled = false;
+               }
+           }
+
 </script>
 
 
