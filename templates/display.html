@@ -296,20 +296,33 @@ document.getElementById("totalPriceComb").innerHTML = "$"+ totalpricecomb.toFixe
 
 
 //Code to show User Input Route
-var source_dest_list = '{{ result.userInput }}' ;
+    var place1 = '{{ result.place1 }}' ;
+    var place2 = '{{ result.place2 }}' ;
+    var place3 = '{{ result.place3 }}' ;
+    var place4 = '{{ result.place4 }}' ;
+    var place5 = '{{ result.place5 }}' ;
+    if (place1 !="") {
+        var routeNumber = parseInt(place1.split(':')[0]) - 1;
+        document.getElementById("inputroute").innerHTML += routeNumber + " -- " + place1.split(':')[1] + "<br />";
+    }
+    if (place2 !="") {
+        var routeNumber = parseInt(place2.split(':')[0]) - 1;
+        document.getElementById("inputroute").innerHTML += routeNumber + " -- " + place2.split(':')[1] + "<br />";
+    }
+    if (place3 !="") {
+        var routeNumber = parseInt(place3.split(':')[0]) - 1;
+        document.getElementById("inputroute").innerHTML += routeNumber + " -- " + place3.split(':')[1] + "<br />";
+    }
+    if (place4 !="") {
+        var routeNumber = parseInt(place4.split(':')[0]) - 1;
+        document.getElementById("inputroute").innerHTML += routeNumber + " -- " + place4.split(':')[1] + "<br />";
+    }
+    if (place5 !="") {
+        var routeNumber = parseInt(place5.split(':')[0]) - 1;
+        document.getElementById("inputroute").innerHTML += routeNumber + " -- " + place5.split(':')[1] + "<br />";
+    }
 
-var userInput = source_dest_list.split(',')
 
-    for(i=0;i<userInput.length; i++) {
-        var routeNumber = parseInt(userInput[i].split(':')[0]) - 1;
-    if (userInput[i] == userInput[userInput.length - 1]) {
-    document.getElementById("inputroute").innerHTML += routeNumber + " -- " + userInput[i].split(':')[1] ;
-  }
-    else {
-        document.getElementById("inputroute").innerHTML += routeNumber + " -- " + userInput[i].split(':')[1] + "<br />";
-  }
-
-}
 
 </script>
 

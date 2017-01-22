@@ -79,7 +79,7 @@ def getAPIData():
         else:
             list.append(key['rating'])
             rating[key['id']] = key['rating']
-        if 'opening_hours' not in key:
+        if 'opening_hours' not in key or key['opening_hours']['open_now'] is "" :
             list.append("")
         else:
             list.append(key['opening_hours']['open_now'])
@@ -159,12 +159,12 @@ def analyse():
 
 @app.route('/price', methods=['POST'])
 def price():
-    source = request.form.get('latlng1')
-    print "hihih"
-    print source
-    locationList = [source]
 
+    locationList = []
     DestList =[]
+    if (request.form.get('latlng1')):
+        source = request.form.get('latlng1')
+        locationList.append(source)
     if (request.form.get('latlng2')):
         DestList.append(request.form.get('latlng2'))
     if (request.form.get('latlng3')):
@@ -177,16 +177,27 @@ def price():
 
 
     source_dest_list = []
-    if (request.form['placename1']):
+    places1 = ""
+    places2 = ""
+    places3 = ""
+    places4 = ""
+    places5 = ""
+
+    if (request.form['placename1'] and request.form.get('latlng1')):
         source_dest_list.append(str("1:"+request.form['placename1']))
-    if (request.form['placename2']):
+        places1 = "1:"+request.form['placename1']
+    if (request.form['placename2'] and request.form.get('latlng2')):
         source_dest_list.append(str("2:"+request.form['placename2']))
-    if (request.form['placename3']):
+        places2 = "2:" + request.form['placename2']
+    if (request.form['placename3'] and request.form.get('latlng3')) :
         source_dest_list.append(str("3:"+request.form['placename3']))
-    if (request.form['placename4']):
+        places3 = "3:" + request.form['placename3']
+    if (request.form['placename4'] and request.form.get('latlng4')):
         source_dest_list.append(str("4:"+request.form['placename4']))
-    if (request.form['placename5']):
+        places4 = "4:" + request.form['placename4']
+    if (request.form['placename5'] and request.form.get('latlng5')):
         source_dest_list.append(str("5:"+request.form['placename5']))
+        places5 = "5:" + request.form['placename5']
 
     locationList.extend(DestList)
     BusinessLogic.setParameters(len(locationList))
@@ -212,7 +223,7 @@ def price():
     optimalRoute = {'BestRouteUsingLyft': lyftOptimalPathList, 'PriceForLyft': lyftPriceList,
                     'PriceForUber': uberPriceList, 'BestRouteUsingUber': uberOptimalPathList,
                     'BestRouteUsingBoth': cordinateList, 'BestPrice': priceList, 'InvolvedProviders': serviceNameList,
-                    'userInput': source_dest_list, 'useRoutepriceLyft': useRoutepriceLyft,
+                    'userInput': source_dest_list, 'useRoutepriceLyft': useRoutepriceLyft, 'place1': places1, 'place2': places2, 'place3': places3, 'place4': places4, 'place5': places5,
                     'userRouteUberPrice': userRouteUberPrice}
 
     totaluberprice = sum(uberPriceList)
