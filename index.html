@@ -1,0 +1,413 @@
+
+
+<html lang="en">
+<head>
+<style>
+
+
+
+        body {
+	left:0;
+	right:0;
+	top:0;
+	bottom:0;
+  -o-background-size: cover;
+  background-position: center;
+  background-image: url('/static/images/Background2.jpg');
+
+}
+</style>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>PlanMyTrip</title>
+
+    <!-- Google fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
+
+    <!-- font awesome -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="/static/style/bootstrap.min.css" />
+    <link rel="stylesheet" href="/static/style/set.css" />
+    <!-- favicon -->
+    <link rel="stylesheet" href="/static/style/style.css">
+    <!-- Added by Anshul -->
+        <!-- Plugin CSS -->
+    <link href="/static/style/magnific-popup.css" rel="stylesheet">
+        <!--  Light Bootstrap Table core CSS    -->
+    <link href="/static/style/light-bootstrap-dashboard.css" rel="stylesheet"/>
+    <!-- Theme CSS -->
+    <link href="/static/style/creative.min.css" rel="stylesheet">
+
+
+<style>
+       #map {
+        height: 400px;
+        width: 100%;
+       }
+    </style>
+
+        <!-- jQuery -->
+    <script src="/static/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/static/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="/static/scrollreveal.min.js"></script>
+    <script src="/static/jquery.magnific-popup.min.js"></script>
+
+    <!-- Theme JavaScript -->
+    <script src="/static/creative.min.js"></script>
+
+    <!-- jquery for Adding Multiple Text Boxes Start-->
+    <script type="text/javascript" src="/static/jquery-3.1.1.js"></script>
+        <!-- jquery for Adding Multiple Text Boxes End-->
+        
+        <!-- JavaScript for Adding Multiple Text Box Start-->
+        <script type="text/javascript">
+
+</script>
+<!-- JavaScript for Adding Multiple Text Box End-->
+</head>
+
+<body id="page-top" >
+
+<img src="/static/images/loading.gif" id="gif" style="display: block; margin: 0 auto; width: 100px; visibility: hidden;">
+<div class="topbar animated fadeInLeftBig"></div>
+
+<!-- Header Starts -->
+
+ <nav id="mainNav" class="navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+          <div class="navbar-header">
+                    <!-- Logo Starts -->
+                    <h1 style="font-size:250%;"  >Plan My Trip</h1>
+                    <!-- #Logo Ends -->
+
+                </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active">
+                        <a href="{{ url_for("welcome") }}"><strong>Home</strong></a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for("analyse") }}"><strong>Analysis</strong></a>
+                    </li>
+
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+
+
+<!-- #Header Starts -->
+
+
+                <div id="routeFinder"  >
+                    <div class="routeFinder"></div>
+                    <div class="row">
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-sm-offset-4 col-md-offset-3">
+                        <form name="myform" id="myform" method="POST" action={{ url_for("getAPIData") }}" >
+
+                          <br>
+                          <br>
+
+
+                            <h2 align="center">Hola!! Where do you want to Visit Today </h2>
+                     <div class="form-group">
+
+							        <select class="form-control input-lg" required name="city" id="city" >
+							        	<option value=""><strong>Choose City</strong></option>
+							        	<option value="Los Angeles">Los Angeles</option>
+										<option value="Palm Springs">Palm Springs</option>
+                                        <option value="San Francisco">San Francisco</option>
+                                        <option value="Santa Barbara">Santa Barbara</option>
+                                        <option value="Santa Cruz">Santa Cruz</option>
+                                        <option value="Santa Rosa">Santa Rosa</option>
+                                        <option value="Sunnyvale">Sunnyvale</option>
+										<option value="San Jose">San Jose</option>
+                                        <option value="Livermore">Livermore</option>
+										<option value="Milpitas">Milpitas</option>
+                                        <option value="Boulder">Boulder</option>
+                                        <option value="Denver">Denver</option>
+                                        <option value="Hartford">Hartford</option>
+                                        <option value="Orlando">Orlando</option>
+                                        <option value="Tampa Bay">Tampa Bay</option>
+                                        <option value="Atlanta">Atlanta</option>
+                                        <option value="Honolulu">Honolulu</option>
+                                        <option value="Boise">Boise</option>
+                                        <option value="Chicago">Chicago</option>
+                                        <option value="Indianapolis">Indianapolis</option>
+                                        <option value="Kansas City">Kansas City</option>
+                                        <option value="Lexington">Lexington</option>
+                                        <option value="New Orleans">New Orleans</option>
+                                        <option value="Portland">Portland</option>
+                                        <option value="Baltimore">Baltimore</option>
+                                        <option value="Boston">Boston</option>
+                                        <option value="Detroit">Detroit</option>
+                                        <option value="Minneapolis">Minneapolis</option>
+                                        <option value="Lincoln">Lincoln</option>
+                                        <option value="Las Vegas">Las Vegas</option>
+                                        <option value="Newark">Newark</option>
+                                        <option value="Albuquerque">Albuquerque</option>
+                                        <option value="New York City">New York City</option>
+                                        <option value="Concord">Concord</option>
+                                        <option value="Cleveland">Cleveland</option>
+                                        <option value="Oklahoma City">Oklahoma City</option>
+                                        <option value="Portland">Portland</option>
+                                        <option value="Providence">Providence</option>
+                                        <option value="Charleston">Charleston</option>
+                                        <option value="Nashville">Nashville</option>
+                                        <option value="Austin">Austin</option>
+                                        <option value="Dallas">Dallas</option>
+                                        <option value="Richmond">Richmond</option>
+                                        <option value="Seattle">Seattle</option>
+                                        <option value="Milwaukee">Milwaukee</option>
+
+                                        </select>
+                          </div>
+                      <div class="form-group">
+
+							        <select class="form-control input-lg" required name="category" id="category">
+							        	<option value=""><strong>Choose Category</strong></option>
+							        	<option value="point_of_interest">Tourist Places</option>
+										<option value="art_gallery">Art Gallery</option>
+										<option value="book_store">Book Store</option>
+										<option value="hospital">Hospital</option>
+                                        <option value="cafe">Cafeteria</option>
+                                        <option value="food">Food</option>
+                                        <option value="park">Park</option>
+										<option value="museum">Museum</option>
+										<option value="night_club">Night Club</option>
+                                        <option value="liquor_store">Liquor Shop</option>
+										<option value="casino">Casino</option>
+                                        </select>
+                          </div>
+                            
+
+                                    
+
+
+
+
+                           
+
+                            <hr class="colorgraph">
+
+
+                              <div class="col-xs-12 col-sm-6 col-md-6 col-sm-offset-2 col-md-offset-3"><div class="form-group"><input type="submit" id="submit" name="submit" value="Find Places" class="btn btn-primary btn-block"  ></div>
+                                </div>
+                                      
+                              </form>
+
+                    </div>
+
+                </div>
+
+                </div>
+
+                
+
+       <script type="text/javascript">
+
+        var counter;
+$(document).ready(function(){
+
+     counter = 2;
+
+    $("#addDestination").click(function () {
+
+	if(counter>10){
+            alert("A Maximum of 10 Locations are allowed");
+            return false;
+	}
+
+	var newTextBoxDiv = $(document.createElement('div'))
+	     .attr({ class: 'form-group'});
+
+	newTextBoxDiv.after().html('<input type="text" name="destination' + counter +
+	      '" id="destination' + counter + '" class="form-control input-lg" placeholder="Destination '+counter+ '" >');
+
+	newTextBoxDiv.appendTo("#TextBoxesGroup");
+        
+        var input2 = document.getElementById('destination'+counter);
+        var searchBox2 = new google.maps.places.SearchBox(input2);
+      	counter++;
+
+
+     });
+
+     $("#removeDestination").click(function () {
+	if(counter==2){
+          alert("You Must have at least one destination");
+          return false;
+       }
+console.log(counter);
+	counter--;
+
+        $("#destination" + counter).remove();
+
+     });
+
+
+
+         $("#submit").click(function () {
+	    document.myform.action = "/getAPIData"
+         document.myform.submit();             // Submit the page
+
+    return true;
+
+     });
+
+
+  });
+        
+      function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 8,
+          center: {lat: 37.7749295, lng: -122.41941550000001}
+        });
+
+        var input = document.getElementById('source');
+        var searchBox = new google.maps.places.SearchBox(input);
+         
+ 
+        var input2 = document.getElementById('destination1');
+        var searchBox2 = new google.maps.places.SearchBox(input2);
+          
+        var geocoder = new google.maps.Geocoder();
+
+        document.getElementById('getloc').addEventListener('click', function() {
+
+
+          geocodeAddress(geocoder, map);
+            document.getElementById("submit").disabled = false;
+            document.getElementById("getloc").disabled = true;
+
+        //var geocoder = new google.maps.Geocoder();
+         //for (i = 1; i < counter; i++) {
+
+
+        //geocodeAddress(geocoder, i);
+
+
+        });
+      }
+
+      function geocodeAddress(geocoder, resultsMap) {
+
+        var address = document.getElementById('source').value;
+        geocoder.geocode({'address': address}, function(results, status) {
+          if (status === 'OK') {
+            resultsMap.setCenter(results[0].geometry.location);
+
+              var setLatLong = document.getElementById('sourcelatlong');
+              setLatLong.value = results[0].geometry.location.lat()+ "," + results[0].geometry.location.lng();
+
+              var sourceDestinationList = document.getElementById('sourceDestinationList');
+                sourceDestinationList.value = '1:' + address;
+
+
+            var marker = new google.maps.Marker({
+              map: resultsMap,
+              position:  {lat: results[0].geometry.location.lat(), lng: results[0].geometry.location.lng()},
+                label : "0"
+
+            });
+              //  start = new google.maps.LatLng(marker.getPosition().lat(), marker.getPosition().lng());
+               console.log(results[0].geometry.location);
+          } else {
+			   document.getElementById("getloc").disabled = false;
+            alert('Geocode was not successful for the following reason: ' + status);
+          }
+        });
+
+
+
+
+
+          for (var i = 1; i < counter; i++) {
+    (function(i) {
+
+              var Destaddress = document.getElementById('destination' + i).value;
+
+
+              geocoder.geocode({'address': Destaddress}, function (results, status) {
+                  if (status === 'OK') {
+                      resultsMap.setCenter(results[0].geometry.location);
+
+                       var sourceDestinationList = document.getElementById('sourceDestinationList');
+                        sourceDestinationList.value = sourceDestinationList.value + ';' + (i+1)+ ':' + Destaddress;
+
+                        var setLatLong = document.getElementById('latlong');
+                        if(setLatLong.value.length < 1)
+                        {
+                            setLatLong.value = results[0].geometry.location.lat()+ "," + results[0].geometry.location.lng();
+                        }
+                        else {
+                            setLatLong.value = setLatLong.value + ";" + results[0].geometry.location.lat() + "," + results[0].geometry.location.lng();
+                        }
+
+
+                            var marker = new google.maps.Marker({
+                          map: resultsMap,
+                          position: {lat: results[0].geometry.location.lat(), lng: results[0].geometry.location.lng()},
+
+
+                      });
+                      //  start = new google.maps.LatLng(marker.getPosition().lat(), marker.getPosition().lng());
+                      console.log(results[0].geometry.location);
+                  } else {
+                      alert('Geocode was not successful for the following reason: ' + status);
+                  }
+              });
+
+
+            })(i);
+}
+             }
+
+          
+      
+   
+        
+        //REference : https://www.taniarascia.com/google-maps-apis-for-multiple-locations/
+    </script>
+                    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+                    <script type="text/javascript">
+$(window).load(function() {
+	  	$.notify({
+            	icon: '',
+            	message: "<p><font color='black'>Welcome to <b>Light Bootstrap Dashboard</b> - a beautiful freebie for every web developer.</font></p>"
+
+            },{
+                type: 'success',
+                timer: 4000
+            });
+})
+
+
+                        $('#myform').submit(function()  {
+	$(".loader").fadeOut("slow");
+})
+</script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDmjLulL2RJWCbb3ewYnwC9VfHNZRpRK-o&libraries=places&callback=initMap">
+    </script>
+         </div>   
+
+
+</body>
+</html>
